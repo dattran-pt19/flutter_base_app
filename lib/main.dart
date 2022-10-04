@@ -1,10 +1,10 @@
+import 'package:base_flutter/tools/define/app_colors.dart';
+import 'package:base_flutter/tools/define/app_fonts.dart';
+import 'package:base_flutter/tools/languages.dart';
+import 'package:base_flutter/tools/singleton.dart';
+import 'package:base_flutter/views/main/main_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import 'base/tools/define/app_colors.dart';
-import 'base/tools/define/app_fonts.dart';
-import 'base/tools/languages.dart';
-import 'base/tools/singleton.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       home: Container(
         color: Colors.white,
         alignment: Alignment.center,
-        child: const Text("Hello base app"),
+        child: const MainView(),
       ),
     );
   }
