@@ -6,16 +6,20 @@ class AppColors {
   AppColors._();
 
   final primary = const Color(0xFF114A9F);
-  final dark = const Color(0xFF4B4B4B);
-  final displayText = const Color(0xFF424244);
-  final bodyText = const Color(0xFF5D5F65);
+  final transparentPrimary = const Color(0xFF114A9F).withAlpha(30);
+  final mainText = const Color(0xFF333333);
+  final lightText = const Color(0xFF4F4F4F);
   final warning = const Color(0xFFFDB913);
+  final active = const Color(0xFF43A047);
   final danger = const Color(0xFFEA5455);
   final placeholder = const Color(0xFFA7A9AC);
-  final border = const Color(0xFFD6D9E1);
-  final background = const Color(0xFFFBFCFF);
+  final border = const Color(0xFFD0D0D5);
+  final background = const Color(0xFFF1F1F4);
   final disable = const Color(0xFFADAFB6);
-  final blur = const Color(0xFFF4F5F8);
-  final tableHeader = const Color(0xFFF2F3F7);
   final dimColor = const Color(0xFF4B4B4B).withAlpha(183);
+  final shadow = const Color(0xFF000000).withAlpha(25);
+  final ticketFooter = const Color(0xFF1E3869);
+  final ticketContent = const Color(0xFF231F20);
+  final info = const Color(0xFF00A0DC);
+  final cardBackground = const Color(0xFF0083CA).withAlpha(30);
 }

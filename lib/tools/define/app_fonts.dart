@@ -6,20 +6,23 @@ class AppFonts {
   factory AppFonts() => _instance;
   AppFonts._();
 
-  final heading1 = AppFontStyle.regular(28);
-  final heading2 = AppFontStyle.regular(24);
-  final heading3 = AppFontStyle.regular(20);
-  final heading4 = AppFontStyle.regular(18);
+  final heading1 = AppFontStyle.regular(20);
+  final heading2 = AppFontStyle.regular(18);
+  final title = AppFontStyle.regular(16);
+  final body = AppFontStyle.regular(14);
+  final description = AppFontStyle.regular(12);
 
-  final body1 = AppFontStyle.regular(16);
-  final body2 = AppFontStyle.regular(14);
-  final body3 = AppFontStyle.regular(12);
-  final body1M = AppFontStyle.medium(16);
-  final body2M = AppFontStyle.medium(14);
-  final body3M = AppFontStyle.medium(12);
-  final body1B = AppFontStyle.bold(16);
-  final body2B = AppFontStyle.bold(14);
-  final body3B = AppFontStyle.bold(12);
+  final heading1M = AppFontStyle.medium(20);
+  final heading2M = AppFontStyle.medium(18);
+  final titleM = AppFontStyle.medium(16);
+  final bodyM = AppFontStyle.medium(14);
+  final descriptionM = AppFontStyle.medium(12);
+
+  final heading1B = AppFontStyle.bold(20);
+  final heading2B = AppFontStyle.bold(18);
+  final titleB = AppFontStyle.bold(16);
+  final bodyB = AppFontStyle.bold(14);
+  final descriptionB = AppFontStyle.bold(12);
 }
 
 class AppFontStyle {

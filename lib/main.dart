@@ -1,6 +1,7 @@
 import 'package:base_flutter/tools/define/app_colors.dart';
 import 'package:base_flutter/tools/define/app_fonts.dart';
 import 'package:base_flutter/tools/languages.dart';
+import 'package:base_flutter/tools/shared_data.dart';
 import 'package:base_flutter/tools/singleton.dart';
 import 'package:base_flutter/views/main/main_view.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await SharedData.ensureInitialized();
   runApp(
     EasyLocalization(
       supportedLocales: LanguageType.values.map((type) => type.locale).toList(),

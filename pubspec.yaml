@@ -39,6 +39,12 @@ dependencies:
   logger: ^1.1.0
   http: ^0.13.5
   easy_localization: ^3.0.1
+  # Lưu dữ liệu vào thiết bị
+  shared_preferences: ^2.0.15
+  # Quản lý trạng thái cấp quyền truy cập ứng dụng
+  permission_handler: ^10.0.2
+  # Hiển thị toast
+  another_flushbar: ^1.12.29
 
 dev_dependencies:
   flutter_test:

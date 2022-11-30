@@ -66,15 +66,15 @@ class _MainViewState extends ViewState<MainView, MainVM> {
                         getIconPath(type.icon),
                         color: viewModel.checkIsSelectedItem(type)
                             ? AppColors().primary
-                            : AppColors().dark,
+                            : AppColors().mainText,
                       ),
                       getVerticalSpacing(2),
                       Text(type.title,
                           style: getTextStyle(
-                              AppFonts().body1,
+                              AppFonts().body,
                               viewModel.checkIsSelectedItem(type)
                                   ? AppColors().primary
-                                  : AppColors().dark))
+                                  : AppColors().mainText))
                     ],
                   ),
                 ),
