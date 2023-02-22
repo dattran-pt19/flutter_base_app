@@ -1,3 +1,15 @@
 {
-  "key": "value"
+  "networkError": {
+    "unAuthorization": "Đăng nhập đã hết hạn",
+    "noAuthorization": "Không có quyền truy cập ứng dụng",
+    "internet": "Mất kết nối internet",
+    "timeOut": "Quá thời gian chờ",
+    "other": "Có lỗi xảy ra!"
+  },
+  "toast": {
+    "info": "Thông tin",
+    "success": "Thành công",
+    "warning": "Cảnh báo!",
+    "error": "Có lỗi xảy ra!"
+  }
 }

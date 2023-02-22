@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 class BaseException implements Exception {
   final String message;
   final String prefix;
@@ -25,7 +27,23 @@ class UnAuthorizedException extends BaseException {
 enum NetworkExceptionType {
   noInternet, timeout,
   badRequest, unAuthorization,
-  notFound
+  notFound, other;
+
+  String get title {
+    switch (this) {
+      case NetworkExceptionType.noInternet:
+        return "networkError.internet".tr();
+      case NetworkExceptionType.timeout:
+        return "networkError.timeOut".tr();
+      case NetworkExceptionType.badRequest:
+        return "networkError.other".tr();
+      case NetworkExceptionType.unAuthorization:
+        return "networkError.unAuthorization".tr();
+      case NetworkExceptionType.notFound:
+      case NetworkExceptionType.other:
+        return "networkError.other".tr();
+    }
+  }
 }
 
 class NetworkCallBackModel {

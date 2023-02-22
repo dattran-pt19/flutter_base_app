@@ -1,10 +1,9 @@
 import 'package:base_flutter/base/mvvm/base_view.dart';
-import 'package:base_flutter/views/main/main_vm.dart';
+import 'package:base_flutter/pages/main/main_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../tools/define/app_colors.dart';
-import '../../tools/define/app_fonts.dart';
+import '../../base/define/app_colors.dart';
+import '../../base/define/app_fonts.dart';
 import '../../tools/singleton.dart';
 import '../../tools/utils.dart';
 

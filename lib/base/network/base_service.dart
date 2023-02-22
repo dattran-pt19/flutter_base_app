@@ -10,7 +10,6 @@ import 'base_exceptions.dart';
 
 class BaseService {
   static const int timeOutDuration = 30;
-  static const Map<String, dynamic> emptyMap = {};
 
   Map<String, String> requestHeaders = {
     HttpHeaders.contentTypeHeader: "application/json"
@@ -24,9 +23,11 @@ class BaseService {
   }
 
   /// Get
-  Future<NetworkCallBackModel> get(String api, {Map<String, dynamic> params = emptyMap}) async {
+  Future<NetworkCallBackModel> get(String api, {Map<String, dynamic>? params}) async {
     var uri = Uri.https(CommonAPI.baseUrl, api, params);
-    Logger().d(">>>>>> Params -> ${params.toString()}");
+    if (params != null) {
+      Logger().d(">>>>>> Params -> ${params.toString()}");
+    }
     Logger().d(">>>>>> API -> ${uri.toString()}");
     try {
       var response =
@@ -42,8 +43,33 @@ class BaseService {
 
   /// Post
   Future<NetworkCallBackModel> post(String api,
-      {Map<String, dynamic>? body}) async {
-    var uri = Uri.https(CommonAPI.baseUrl, api);
+      {Map<String, dynamic>? body, Map<String, dynamic>? params}) async {
+    var uri = Uri.https(CommonAPI.baseUrl, api, params);
+    if (params != null) {
+      Logger().d(">>>>>> Params -> ${params.toString()}");
+    }
+    Logger().d(">>>>>> API -> ${uri.toString()}");
+    try {
+      var bodyJson = jsonEncode(body);
+      Logger().d(">>>>>> Body -> $bodyJson");
+      var response = await http
+          .post(uri, body: bodyJson, headers: _getHeaders())
+          .timeout(const Duration(seconds: timeOutDuration));
+      return _processResponse(response);
+    } on SocketException {
+      return NetworkCallBackModel(null, error: NetworkExceptionType.noInternet);
+    } on TimeoutException {
+      return NetworkCallBackModel(null, error: NetworkExceptionType.timeout);
+    }
+  }
+
+  /// Delete
+  Future<NetworkCallBackModel> delete(String api,
+      {Map<String, dynamic>? body, Map<String, dynamic>? params}) async {
+    var uri = Uri.https(CommonAPI.baseUrl, api, params);
+    if (params != null) {
+      Logger().d(">>>>>> Params -> ${params.toString()}");
+    }
     Logger().d(">>>>>> API -> ${uri.toString()}");
     try {
       var bodyJson = jsonEncode(body);

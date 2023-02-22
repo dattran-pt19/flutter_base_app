@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'define/app_fonts.dart';
+import '../base/define/app_fonts.dart';
 
 TextStyle getTextStyle(AppFontStyle font, Color color, {String fontFamily = AppFonts.roboto}) {
   return TextStyle(fontFamily: fontFamily, fontSize: font.size, fontWeight: font.weight, color: color);

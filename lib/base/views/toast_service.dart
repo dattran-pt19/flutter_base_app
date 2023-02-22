@@ -1,17 +1,31 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_flutter/tools/define/app_colors.dart';
-import 'package:base_flutter/tools/define/app_fonts.dart';
-import 'package:base_flutter/tools/utils.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../tools/utils.dart';
+import '../define/app_colors.dart';
+import '../define/app_fonts.dart';
 
 class ToastService {
-  static showToast(BuildContext context, ToastType type, String mess, {String? title, Duration duration = const Duration(seconds: 3)}) {
+  static void showToast(BuildContext context,
+      {ToastType type = ToastType.success,
+      String? mess,
+      Duration duration = const Duration(seconds: 3)}) {
     Flushbar(
       duration: duration,
-      icon: SvgPicture.asset(getIconPath(type.icon), color: Colors.white, width: 20, height: 20),
-      titleText: title == null ? null : Text(title, style: getTextStyle(AppFonts().heading2M, Colors.white)),
-      messageText: Text(mess, style: getTextStyle(AppFonts().title, Colors.white)),
+      icon: IconButton(
+          icon: const Icon(Icons.close, size: 20, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
+      titleText: mess == null
+          ? null
+          : Text(type.title,
+              style: getTextStyle(AppFonts().heading2M, Colors.white)),
+      messageText: Text(mess ?? type.title,
+          style: getTextStyle(
+              mess == null ? AppFonts().heading2M : AppFonts().title,
+              Colors.white)),
       backgroundColor: type.color,
       flushbarPosition: FlushbarPosition.TOP,
       animationDuration: const Duration(milliseconds: 500),
@@ -49,6 +63,19 @@ enum ToastType {
         return AppColors().warning;
       case ToastType.error:
         return AppColors().danger;
+    }
+  }
+
+  String get title {
+    switch (this) {
+      case ToastType.info:
+        return "toast.info".tr();
+      case ToastType.success:
+        return "toast.success".tr();
+      case ToastType.warning:
+        return "toast.warning".tr();
+      case ToastType.error:
+        return "toast.error".tr();
     }
   }
 }

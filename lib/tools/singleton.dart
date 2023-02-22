@@ -1,4 +1,4 @@
-import 'languages.dart';
+import '../base/define/languages.dart';
 
 LanguageType currentLang = LanguageType.vietnamese;
 const double appRadius = 8;

@@ -77,6 +77,10 @@ class Double extends Codable<num> {
   Double({required String key, double? value}) : super(key: key, value: value);
 }
 
+class Dynamic extends Codable<dynamic> {
+  Dynamic({required String key, dynamic value}) : super(key: key, value: value);
+}
+
 class ListPrimaryCodable<T> extends Codable<List<T>> {
   ListPrimaryCodable({required String key, List<T>? value}):
         super(key: key, value: value);
